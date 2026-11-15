@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gita Tune Samples</title>
+<style>
+:root{
+  --bg:#fbf6ee; --card:#ffffff; --ink:#2b2218; --muted:#7a6a58; --line:#eadfce;
+  --saffron:#d9822b; --saffron-ink:#ffffff; --accent:#1f6f78; --glow:rgba(217,130,43,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16120e; --card:#211b15; --ink:#f3e9dc; --muted:#b3a48f; --line:#3a3027;
+    --saffron:#f0a04b; --saffron-ink:#1b130b; --accent:#5fc0c8; --glow:rgba(240,160,75,.18);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16120e; --card:#211b15; --ink:#f3e9dc; --muted:#b3a48f; --line:#3a3027;
+  --saffron:#f0a04b; --saffron-ink:#1b130b; --accent:#5fc0c8; --glow:rgba(240,160,75,.18);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.6rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 18px}
+.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:18px}
+.bar label{color:var(--muted);font-size:.9rem}
+.bar input{flex:1;min-width:120px;accent-color:var(--saffron)}
+.stopall{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer;font:inherit}
+.grid{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;transition:box-shadow .2s,border-color .2s}
+.card.playing{border-color:var(--saffron);box-shadow:0 0 0 4px var(--glow)}
+.card.rec{border-width:2px;border-color:var(--saffron)}
+.play{flex:none;width:52px;height:52px;border-radius:50%;border:none;background:var(--saffron);color:var(--saffron-ink);font-size:20px;cursor:pointer;display:grid;place-items:center}
+.play:focus-visible,.stopall:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.info{min-width:0}
+.title{font-weight:650;margin:0}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--saffron);color:var(--saffron-ink);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:2px}
+.desc{color:var(--muted);font-size:.92rem;margin:2px 0 0}
+.note{color:var(--muted);font-size:.85rem;margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎵 Tune samples for Gita Pathshala</h1>
+  <p class="sub">Tap ▶ to listen. Starting a new sample stops the one already playing.</p>
+
+  <div class="bar">
+    <label for="vol">Volume</label>
+    <input id="vol" type="range" min="0" max="1" step="0.01" value="0.7">
+    <button class="stopall" id="stopall">■ Stop</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <p class="note">I made all of these in the browser by synthesising each instrument, so they're original and copyright-free. They come close to the real instruments but aren't studio recordings. Raag phrases are short alaap-style sketches, and the chant tune is a simple chant-style melody.</p>
+</div>
+
+<script>
+const TRACKS = [
+  {id:'rec', rec:true, title:'Conch + bells → bansuri in Raag Yaman', desc:'My recommendation: a shankh call and temple bells, then a soft flute over a tanpura drone (~30s).'},
+  {id:'conch', title:'Shankh (conch) + temple bells', desc:'A short opening sound, echoing the conches that open the Gita (1.12–1.19). ~6s.'},
+  {id:'yaman', title:'Bansuri – Raag Yaman', desc:'Calm and devotional, the classic choice for Krishna. Played with a tanpura drone.'},
+  {id:'bhupali', title:'Bansuri – Raag Bhupali', desc:'Five notes (S R G P D): simple, bright and peaceful.'},
+  {id:'ahir', title:'Bansuri – Raag Ahir Bhairav', desc:'A meditative morning raag with a gentle, prayerful mood.'},
+  {id:'chant', title:'Chant-style: Om Namo Bhagavate Vasudevaya', desc:'A simple chant melody on flute, over tanpura.'},
+  {id:'santoor', title:'Santoor – Raag Bhupali', desc:'Shimmering hammered strings. Lighter and less common.'},
+  {id:'tanpura', title:'Tanpura drone only', desc:'A quiet, endless background for reading. Plays until you stop it.'}
+];
+
+const grid = document.getElementById('grid');
+TRACKS.forEach(t=>{
+  const c=document.createElement('div');
+  c.className='card'+(t.rec?' rec':''); c.id='card-'+t.id;
+  c.innerHTML=`<button class="play" aria-label="Play ${t.title}" data-id="${t.id}">▶</button>
+  <div class="info"><p class="title">${t.title}${t.rec?'<span class="tag">Recommended</span>':''}</p><p class="desc">${t.desc}</p></div>`;
+  grid.appendChild(c);
+});
+
+let ctx, master, dry, revIn, noiseBuf;
+let state = {bus:null, timers:[], id:null};
+
+function initAudio(){
+  if(ctx) return;
+  ctx = new (window.AudioContext||window.webkitAudioContext)();
+  const comp = ctx.createDynamicsCompressor();
+  comp.threshold.value=-14; comp.ratio.value=3;
+  comp.connect(ctx.destination);
+  master = ctx.createGain(); master.gain.value = +document.getElementById('vol').value; master.connect(comp);
+  dry = ctx.createGain(); dry.gain.value=0.85; dry.connect(master);
+  // reverb
+  const len = ctx.sampleRate*2.8, ir = ctx.createBuffer(2,len,ctx.sampleRate);
+  for(let ch=0;ch<2;ch++){const d=ir.getChannelData(ch);for(let i=0;i<len;i++){d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.6);}}
+  const conv = ctx.createConvolver(); conv.buffer=ir;
+  const wet = ctx.createGain(); wet.gain.value=0.38;
+  revIn = ctx.createGain(); revIn.connect(conv); conv.connect(wet); wet.connect(master);
+  noiseBuf = ctx.createBuffer(1, ctx.sampleRate*2, ctx.sampleRate);
+  const nd=noiseBuf.getChannelData(0); for(let i=0;i<nd.length;i++) nd[i]=Math.random()*2-1;
+}
+document.getElementById('vol').addEventListener('input',e=>{ if(master) master.gain.setTargetAtTime(+e.target.value, ctx.currentTime, 0.05); });
+
+function makeBus(){ const g=ctx.createGain(); g.gain.value=1; g.connect(dry); g.connect(revIn); return g; }
+const ST = s => Math.pow(2, s/12);
+const SA = 293.66; // D4 for flute & santoor; tanpura in D3
+
+/* ---------- Instruments ---------- */
+function fluteNote(bus,t,f,d,prev){
+  const out=ctx.createGain(), lp=ctx.createBiquadFilter();
+  lp.type='lowpass'; lp.frequency.value=3200; lp.connect(out); out.connect(bus);
+  const peak=0.2, end=t+d+0.2;
+  out.gain.setValueAtTime(0,t);
+  out.gain.linearRampToValueAtTime(peak,t+0.1);
+  out.gain.setValueAtTime(peak*0.92,Math.max(t+0.12,t+d-0.08));
+  out.gain.linearRampToValueAtTime(0,end);
+  const lfo=ctx.createOscillator(), lfoG=ctx.createGain();
+  lfo.frequency.value=5.2; lfoG.gain.setValueAtTime(0,t); lfoG.gain.linearRampToValueAtTime(d>0.8?14:6,t+Math.min(0.6,d));
+  lfo.connect(lfoG);
+  [[1,1],[2,0.12],[3,0.035]].forEach(([k,a])=>{
+    const o=ctx.createOscillator(), g=ctx.createGain(); o.type='sine'; g.gain.value=a;
+    if(prev && prev!==f){ o.frequency.setValueAtTime(prev*k,t); o.frequency.exponentialRampToValueAtTime(f*k,t+0.08); }
+    else o.frequency.setValueAtTime(f*k,t);
+    lfoG.connect(o.detune); o.connect(g); g.connect(lp); o.start(t); o.stop(end+0.05);
+  });
+  const n=ctx.createBufferSource(), bp=ctx.createBiquadFilter(), ng=ctx.createGain();
+  n.buffer=noiseBuf; n.loop=true; bp.type='bandpass'; bp.frequency.value=f*1.6; bp.Q.value=0.9;
+  ng.gain.setValueAtTime(0,t); ng.gain.linearRampToValueAtTime(0.05,t+0.06); ng.gain.linearRampToValueAtTime(0.012,t+0.25); ng.gain.linearRampToValueAtTime(0,end);
+  n.connect(bp); bp.connect(ng); ng.connect(out); n.start(t); n.stop(end+0.05);
+  lfo.start(t); lfo.stop(end+0.05);
+}
+function playFlute(bus,t,mel,beat){
+  let time=t, prev=null;
+  mel.forEach(([o,b])=>{ const f=SA*ST(o), d=b*beat; fluteNote(bus,time,f,d,prev); prev=f; time+=d; });
+  return time;
+}
+function tanpuraPluck(bus,t,f){
+  const saw=ctx.createOscillator(), lp=ctx.createBiquadFilter(), g=ctx.createGain();
+  saw.type='sawtooth'; saw.frequency.value=f; lp.type='lowpass'; lp.Q.value=7;
+  lp.frequency.setValueAtTime(f*8,t); lp.frequency.exponentialRampToValueAtTime(f*2.4,t+3.8);
+  g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(0.07,t+0.015); g.gain.exponentialRampToValueAtTime(0.0008,t+4.4);
+  saw.connect(lp); lp.connect(g); g.connect(bus);
+  const s=ctx.createOscillator(), sg=ctx.createGain(); s.frequency.value=f;
+  sg.gain.setValueAtTime(0,t); sg.gain.linearRampToValueAtTime(0.06,t+0.015); sg.gain.exponentialRampToValueAtTime(0.0008,t+4);
+  s.connect(sg); sg.connect(bus);
+  saw.start(t); saw.stop(t+4.5); s.start(t); s.stop(t+4.5);
+}
+function startTanpura(bus,start){
+  const strings=[110, 146.83, 146.83, 73.42], cyc=4.4; let next=start;
+  const tick=()=>{ while(next < ctx.currentTime+5){ strings.forEach((f,i)=>tanpuraPluck(bus,next+i*1.1,f)); next+=cyc; } };
+  tick(); state.timers.push(setInterval(tick,1000));
+}
+function conch(bus,t){
+  const out=ctx.createGain(), bp=ctx.createBiquadFilter(), lp=ctx.createBiquadFilter();
+  bp.type='bandpass'; bp.frequency.value=950; bp.Q.value=1.2; lp.type='lowpass'; lp.frequency.value=3600;
+  bp.connect(lp); lp.connect(out); out.connect(bus);
+  out.gain.setValueAtTime(0.0001,t); out.gain.exponentialRampToValueAtTime(0.32,t+0.7);
+  out.gain.setValueAtTime(0.32,t+2.6); out.gain.exponentialRampToValueAtTime(0.0001,t+3.5);
+  const lfo=ctx.createOscillator(), lg=ctx.createGain(); lfo.frequency.value=5.5; lg.gain.value=12; lfo.connect(lg);
+  [0,-7].forEach(det=>{
+    const o=ctx.createOscillator(); o.type='sawtooth'; o.detune.value=det;
+    o.frequency.setValueAtTime(270,t); o.frequency.exponentialRampToValueAtTime(311,t+0.45);
+    o.frequency.linearRampToValueAtTime(330,t+2.6); o.frequency.linearRampToValueAtTime(296,t+3.5);
+    lg.connect(o.detune); o.connect(bp); o.start(t); o.stop(t+3.6);
+  });
+  lfo.start(t); lfo.stop(t+3.6);
+  return t+3.5;
+}
+function bell(bus,t,f,vol){
+  [[1,1,4.5],[2,0.55,3.2],[2.76,0.45,2.6],[5.4,0.22,1.6],[8.93,0.1,1.0]].forEach(([r,a,dec])=>{
+    const o=ctx.createOscillator(), g=ctx.createGain(); o.frequency.value=f*r;
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol*a,t+0.004); g.gain.exponentialRampToValueAtTime(0.0001,t+dec);
+    o.connect(g); g.connect(bus); o.start(t); o.stop(t+dec+0.05);
+  });
+}
+function bells(bus,t){
+  bell(bus,t,520,0.16); bell(bus,t+1.7,520,0.13);
+  for(let i=0;i<14;i++) bell(bus,t+0.25+i*0.13,i%2?1420:1385,0.035);
+  return t+5;
+}
+function santoorStrike(bus,t,f,vol){
+  [[1,1],[2.005,0.5],[3.012,0.25],[4.03,0.12]].forEach(([r,a])=>{
+    const o=ctx.createOscillator(), g=ctx.createGain(); o.frequency.value=f*r;
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol*a,t+0.003); g.gain.exponentialRampToValueAtTime(0.0001,t+1.5);
+    o.connect(g); g.connect(bus); o.start(t); o.stop(t+1.55);
+  });
+}
+function playSantoor(bus,t,mel,beat){
+  let time=t;
+  mel.forEach(([o,b])=>{
+    const f=SA*ST(o), d=b*beat;
+    if(d>=beat*1.9){ for(let x=0;x<d-0.05;x+=0.095) santoorStrike(bus,time+x,f,(Math.round(x/0.095)%2?0.06:0.09)*(1-x/(d*1.6))); }
+    else { santoorStrike(bus,time,f,0.13); santoorStrike(bus,time,f*2,0.035); }
+    time+=d;
+  });
+  return time;
+}
+
+/* ---------- Melodies: [semitones from Sa, beats] ---------- */
+const YAMAN=[[-1,1],[2,1],[4,2],[2,1],[0,2],[-1,1],[-3,1],[-1,1],[2,1],[0,2.5],
+  [4,1],[6,1],[9,2],[6,1],[4,1],[2,1],[4,2],[6,1],[9,1],[11,1],[12,3],
+  [11,1],[9,1],[7,1],[6,1],[4,1],[2,1],[0,4]];
+const BHUPALI=[[4,2],[2,1],[0,1],[-3,1],[0,2],[2,1],[4,2],[7,1],[4,1],[9,1],[7,2],
+  [4,1],[2,1],[4,1],[7,1],[9,1],[12,3],[9,1],[7,1],[4,1],[2,1],[0,4]];
+const AHIR=[[0,1],[1,1],[4,2],[5,1],[4,1],[1,1],[0,2],[-2,1],[-3,1],[-2,1],[0,2.5],
+  [4,1],[5,1],[7,2],[9,1],[10,1],[9,1],[7,2],[5,1],[4,1],[1,1.5],[0,4]];
+const CHANT=[[0,2],[0,1],[2,1],[4,1],[4,1],[4,1],[2,1],[4,1.5],[7,0.5],[4,1],[2,1],[0,3],
+  [4,1],[4,1],[7,1],[9,1],[7,1],[4,1],[4,1.5],[7,0.5],[4,1],[2,1],[0,4]];
+const BEAT=0.55;
+
+/* ---------- Transport ---------- */
+function stopAll(){
+  state.timers.forEach(clearInterval); state.timers.forEach(clearTimeout); state.timers=[];
+  if(state.bus && ctx){ const b=state.bus; b.gain.setTargetAtTime(0,ctx.currentTime,0.15); setTimeout(()=>b.disconnect(),1200); }
+  state.bus=null;
+  if(state.id){ const c=document.getElementById('card-'+state.id); c.classList.remove('playing'); c.querySelector('.play').textContent='▶'; }
+  state.id=null;
+}
+function finishAt(end){ state.timers.push(setTimeout(stopAll, (end-ctx.currentTime+1.5)*1000)); }
+
+function play(id){
+  initAudio(); if(ctx.state==='suspended') ctx.resume();
+  const wasSame = state.id===id; stopAll(); if(wasSame) return;
+  const bus=makeBus(); state.bus=bus; state.id=id;
+  const c=document.getElementById('card-'+id); c.classList.add('playing'); c.querySelector('.play').textContent='■';
+  const t=ctx.currentTime+0.1;
+  if(id==='rec'){ conch(bus,t); bells(bus,t+2.9); startTanpura(bus,t+4.2); finishAt(playFlute(bus,t+6.2,YAMAN,BEAT)+1.5); }
+  else if(id==='conch'){ conch(bus,t); finishAt(bells(bus,t+2.9)); }
+  else if(id==='yaman'){ startTanpura(bus,t); finishAt(playFlute(bus,t+1.6,YAMAN,BEAT)+1.5); }
+  else if(id==='bhupali'){ startTanpura(bus,t); finishAt(playFlute(bus,t+1.6,BHUPALI,BEAT)+1.5); }
+  else if(id==='ahir'){ startTanpura(bus,t); finishAt(playFlute(bus,t+1.6,AHIR,BEAT)+1.5); }
+  else if(id==='chant'){ startTanpura(bus,t); finishAt(playFlute(bus,t+1.6,CHANT,0.5)+1.5); }
+  else if(id==='santoor'){ startTanpura(bus,t); finishAt(playSantoor(bus,t+1.2,BHUPALI,0.42)+1.5); }
+  else if(id==='tanpura'){ startTanpura(bus,t); }
+}
+grid.addEventListener('click',e=>{ const b=e.target.closest('.play'); if(b) play(b.dataset.id); });
+document.getElementById('stopall').addEventListener('click',stopAll);
+</script>
+</body>
+</html>

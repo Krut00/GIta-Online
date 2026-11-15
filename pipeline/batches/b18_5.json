@@ -1,0 +1,170 @@
+{
+"18.18": {
+"w": ["jñānaṃ jñeyaṃ parijñātā", "trividhā karma-codanā", "karaṇaṃ karma kartā iti", "trividhaḥ karma-saṃgrahaḥ"],
+"en": {
+"wm": ["knowledge, the known, and the knower", "are the threefold impulse to action", "instrument, action and doer", "are the threefold basis of action"],
+"tr": "Knowledge, the object known and the knower are the threefold impulse to action. The instrument, the action and the doer are the threefold basis of action.",
+"simple": "Before we act, three things come together: we know something, there is something to know, and there is a 'me' who knows. Then, while acting, there are three more: the tools we use, the act itself, and the doer. Krishna is mapping how every action starts and is carried out.",
+"deep": "'Karma-chodana' means what prompts action. First we perceive (jnana) an object (jneya) as a knower (parijnata); for example, I see food and feel hungry. 'Karma-sangraha' means what holds the action together: the senses and body as instrument (karana), the deed itself (karma) and the agent (karta). Krishna sets out these six because in the next verses he will show that knowledge, action and doer each take three forms according to the gunas.",
+"ctx": "Having shown that the Self is not the doer (18.13 to 18.17), Krishna now explains the structure of action. From 18.19 to 18.28 he describes sattvic, rajasic and tamasic forms of knowledge, action and doer. This links to Chapter 14, where the three gunas were first explained in detail.",
+"ex": ["A student sees an exam notice (knowledge of an object), feels 'I must study' (the knower is moved), then uses books and time (instruments) to study (action) as the learner (doer).", "A shopkeeper notices a customer needs help, and then uses words and hands to serve them; the whole chain of knowing and doing is visible in a few seconds."],
+"apply": "When you notice an urge to act, pause at the 'knowing' stage and ask how you are seeing the situation. A small change in how you see changes everything that follows.",
+"mis": "This is not a cold technical list. It is a tool for self-awareness: by seeing the parts of action, we can notice where ego and the gunas enter and correct them.",
+"interp": [["Advaita (Shankara)", "These six are all within the field of ignorance; the Self, being beyond them, is neither the impulse nor the basis of action."], ["Sridhara", "Knowledge, object and knower move one to act; instrument, act and agent are where action rests."]],
+"rq": "In a recent decision, how did the way you first saw the situation shape what you did?",
+"take": "How you know a thing shapes how you act on it."
+},
+"hi": {
+"wm": ["ज्ञान, ज्ञेय और ज्ञाता", "तीन प्रकार की कर्म-प्रेरणा हैं", "करण, कर्म और कर्ता", "तीन प्रकार का कर्म-संग्रह है"],
+"tr": "ज्ञान, ज्ञेय और ज्ञाता, ये तीन कर्म की प्रेरणा हैं; और करण, कर्म तथा कर्ता, ये तीन कर्म का संग्रह (आधार) हैं।",
+"simple": "कर्म से पहले तीन चीज़ें मिलती हैं: हम कुछ जानते हैं, कुछ जानने योग्य होता है, और एक 'मैं' होता है जो जानता है। फिर कर्म करते समय तीन और होते हैं: साधन जिनसे करते हैं, स्वयं कर्म, और कर्ता। कृष्ण बता रहे हैं कि हर कर्म कैसे शुरू होता है और कैसे पूरा होता है।",
+"deep": "'कर्मचोदना' का अर्थ है जो कर्म के लिए प्रेरित करे। पहले हम ज्ञाता के रूप में किसी ज्ञेय वस्तु का ज्ञान पाते हैं; जैसे मैं भोजन देखता हूँ और भूख लगती है। 'कर्मसंग्रह' का अर्थ है जो कर्म को थामे रखे: इंद्रियाँ और शरीर करण के रूप में, स्वयं कर्म, और कर्ता। कृष्ण ये छह इसलिए बताते हैं कि आगे वे दिखाएँगे कि ज्ञान, कर्म और कर्ता गुणों के अनुसार तीन-तीन प्रकार के होते हैं।",
+"ctx": "आत्मा कर्ता नहीं है, यह दिखाने के बाद (18.13 से 18.17) कृष्ण अब कर्म की संरचना समझाते हैं। 18.19 से 18.28 तक वे ज्ञान, कर्म और कर्ता के सात्त्विक, राजस और तामस रूप बताते हैं। यह अध्याय 14 से जुड़ता है, जहाँ तीनों गुणों को पहली बार विस्तार से समझाया गया।",
+"ex": ["एक छात्र परीक्षा की सूचना देखता है (ज्ञेय का ज्ञान), उसे लगता है 'पढ़ना है' (ज्ञाता प्रेरित होता है), फिर किताबें और समय (करण) लगाकर पढ़ता है (कर्म), सीखने वाले के रूप में (कर्ता)।", "एक दुकानदार देखता है कि ग्राहक को मदद चाहिए, फिर शब्दों और हाथों से उसकी सेवा करता है; जानने और करने की पूरी कड़ी कुछ ही क्षणों में दिखती है।"],
+"apply": "जब कुछ करने की इच्छा उठे, तो 'जानने' के चरण पर रुककर पूछें कि आप स्थिति को कैसे देख रहे हैं। देखने में छोटा-सा बदलाव आगे की हर बात बदल देता है।",
+"mis": "यह कोई रूखी तकनीकी सूची नहीं है। यह आत्म-जागरूकता का साधन है: कर्म के हिस्से देखकर हम पहचान सकते हैं कि अहंकार और गुण कहाँ घुसते हैं, और उन्हें सुधार सकते हैं।",
+"interp": [["अद्वैत (शंकराचार्य)", "ये छहों अविद्या के क्षेत्र में हैं; आत्मा इनसे परे है, इसलिए वह न कर्म की प्रेरणा है न आधार।"], ["श्रीधर स्वामी", "ज्ञान, ज्ञेय और ज्ञाता कर्म में प्रवृत्त करते हैं; करण, कर्म और कर्ता में कर्म टिका रहता है।"]],
+"rq": "हाल के किसी निर्णय में, स्थिति को पहली बार जैसे देखा, उसने आपके कर्म को कैसे गढ़ा?",
+"take": "आप किसी बात को कैसे जानते हैं, वही तय करता है कि आप कैसे कर्म करेंगे।"
+},
+"gu": {
+"wm": ["જ્ઞાન, જ્ઞેય અને જ્ઞાતા", "ત્રણ પ્રકારની કર્મ-પ્રેરણા છે", "કરણ, કર્મ અને કર્તા", "ત્રણ પ્રકારનો કર્મ-સંગ્રહ છે"],
+"tr": "જ્ઞાન, જ્ઞેય અને જ્ઞાતા, આ ત્રણ કર્મની પ્રેરણા છે; અને કરણ, કર્મ તથા કર્તા, આ ત્રણ કર્મનો સંગ્રહ (આધાર) છે.",
+"simple": "કર્મ પહેલાં ત્રણ વસ્તુઓ ભેગી થાય છે: આપણે કંઈક જાણીએ છીએ, કંઈક જાણવા જેવું હોય છે, અને એક 'હું' હોય છે જે જાણે છે. પછી કર્મ કરતી વખતે બીજી ત્રણ હોય છે: સાધનો જેનાથી કરીએ, પોતે કર્મ, અને કર્તા. કૃષ્ણ બતાવે છે કે દરેક કર્મ કેવી રીતે શરૂ થાય છે અને પૂરું થાય છે.",
+"deep": "'કર્મચોદના' નો અર્થ છે જે કર્મ માટે પ્રેરે. પહેલાં આપણે જ્ઞાતા તરીકે કોઈ જ્ઞેય વસ્તુનું જ્ઞાન મેળવીએ છીએ; જેમ કે હું ભોજન જોઉં છું અને ભૂખ લાગે છે. 'કર્મસંગ્રહ' નો અર્થ છે જે કર્મને ટકાવી રાખે: ઇન્દ્રિયો અને શરીર કરણ તરીકે, પોતે કર્મ, અને કર્તા. કૃષ્ણ આ છ એટલા માટે કહે છે કે આગળ તેઓ બતાવશે કે જ્ઞાન, કર્મ અને કર્તા ગુણો મુજબ ત્રણ-ત્રણ પ્રકારના હોય છે.",
+"ctx": "આત્મા કર્તા નથી એ બતાવ્યા પછી (18.13થી 18.17) કૃષ્ણ હવે કર્મની રચના સમજાવે છે. 18.19થી 18.28 સુધી તેઓ જ્ઞાન, કર્મ અને કર્તાનાં સાત્ત્વિક, રાજસ અને તામસ રૂપો કહે છે. આ અધ્યાય 14 સાથે જોડાય છે, જ્યાં ત્રણ ગુણોને પહેલી વાર વિગતે સમજાવ્યા.",
+"ex": ["એક વિદ્યાર્થી પરીક્ષાની સૂચના જુએ છે (જ્ઞેયનું જ્ઞાન), તેને લાગે છે 'ભણવું છે' (જ્ઞાતા પ્રેરાય છે), પછી પુસ્તકો અને સમય (કરણ) લગાવીને ભણે છે (કર્મ), શીખનાર તરીકે (કર્તા).", "એક દુકાનદાર જુએ છે કે ગ્રાહકને મદદ જોઈએ છે, પછી શબ્દો અને હાથથી તેની સેવા કરે છે; જાણવા અને કરવાની આખી કડી થોડી જ ક્ષણોમાં દેખાય છે."],
+"apply": "જ્યારે કંઈ કરવાની ઇચ્છા ઊઠે, ત્યારે 'જાણવાના' તબક્કે અટકીને પૂછો કે તમે સ્થિતિને કેવી રીતે જુઓ છો. જોવામાં નાનો ફેરફાર આગળની દરેક વાત બદલી નાખે છે.",
+"mis": "આ કોઈ શુષ્ક તકનીકી યાદી નથી. તે આત્મ-જાગૃતિનું સાધન છે: કર્મના ભાગો જોઈને આપણે ઓળખી શકીએ કે અહંકાર અને ગુણો ક્યાં પ્રવેશે છે, અને તેમને સુધારી શકીએ.",
+"interp": [["અદ્વૈત (શંકરાચાર્ય)", "આ છયે અવિદ્યાના ક્ષેત્રમાં છે; આત્મા તેનાથી પર છે, તેથી તે ન કર્મની પ્રેરણા છે ન આધાર."], ["શ્રીધર સ્વામી", "જ્ઞાન, જ્ઞેય અને જ્ઞાતા કર્મમાં પ્રવૃત્ત કરે છે; કરણ, કર્મ અને કર્તામાં કર્મ ટકે છે."]],
+"rq": "તાજેતરના કોઈ નિર્ણયમાં, સ્થિતિને પહેલી વાર જેમ જોઈ, તેણે તમારા કર્મને કેવી રીતે ઘડ્યું?",
+"take": "તમે કોઈ વાતને કેવી રીતે જાણો છો, તે જ નક્કી કરે છે કે તમે કેવું કર્મ કરશો."
+}
+},
+"18.19": {
+"w": ["jñānaṃ karma ca kartā ca", "tridhā eva guṇa-bhedataḥ", "procyate guṇa-saṃkhyāne", "yathāvat śṛṇu tāni api"],
+"en": {
+"wm": ["knowledge, action and the doer", "are of three kinds, by the difference of the gunas", "it is said in the science of the gunas", "hear about them too, as they are"],
+"tr": "Knowledge, action and the doer are said to be of three kinds in the science of the gunas, according to the difference of the gunas. Hear about them properly.",
+"simple": "Krishna says that the way we know things, the way we act, and the kind of person who acts can each be of three types. These types depend on the three gunas: sattva (clarity), rajas (restless desire) and tamas (dullness). He asks Arjuna to listen carefully.",
+"deep": "'Guna-sankhyana' refers to the Sankhya teaching that analyses nature into three gunas. Krishna uses it as a mirror: each part of action reflects the guna that is strongest in us. By learning to recognise sattvic, rajasic and tamasic knowledge, action and doer, a person can see where they stand and how to move towards sattva and beyond.",
+"ctx": "This verse introduces the detailed list in 18.20 to 18.28. Knowledge is described in 18.20 to 18.22, action in 18.23 to 18.25, and the doer in 18.26 to 18.28. It continues the guna analysis of Chapters 14 and 17.",
+"ex": ["Two people read the same news. One sees the full picture calmly, another sees only what confirms his anger, and a third does not bother to understand at all. The same event, three kinds of knowing.", "Three cooks prepare food: one carefully and for others' health, one to show off, and one carelessly. The gunas shape the action."],
+"apply": "Choose one area of life, such as work, and ask: is my knowing, my acting and my attitude here mostly clear, mostly restless or mostly dull?",
+"mis": "The three types are not fixed labels for people. Everyone has all three gunas; one may dominate at a given time, and it can change with effort and practice.",
+"interp": [["Advaita (Shankara)", "Even though the Sankhya system is not accepted in every detail, its analysis of the gunas is valid and is used here."], ["Sridhara", "Krishna describes the three kinds so that one may take up the sattvic and give up the others."]],
+"rq": "Which guna do you think most shapes your actions this month?",
+"take": "Knowing your guna is the first step to rising above it."
+},
+"hi": {
+"wm": ["ज्ञान, कर्म और कर्ता", "गुणों के भेद से तीन-तीन प्रकार के ही", "गुण-विज्ञान (सांख्य) में कहे गए हैं", "उन्हें भी यथार्थ रूप से सुनो"],
+"tr": "गुणों का वर्णन करने वाले शास्त्र में ज्ञान, कर्म और कर्ता गुणों के भेद से तीन-तीन प्रकार के ही बताए गए हैं; उन्हें भी तुम मुझसे ठीक-ठीक सुनो।",
+"simple": "कृष्ण कहते हैं कि हम जिस तरह जानते हैं, जिस तरह कर्म करते हैं, और जिस प्रकार के व्यक्ति कर्म करते हैं, ये सब तीन-तीन तरह के हो सकते हैं। ये तीनों गुणों पर निर्भर हैं: सत्त्व (स्पष्टता), रजस (बेचैन इच्छा) और तमस (जड़ता)। वे अर्जुन से ध्यान से सुनने को कहते हैं।",
+"deep": "'गुणसंख्यान' का अर्थ सांख्य की वह शिक्षा है जो प्रकृति को तीन गुणों में बाँटकर समझाती है। कृष्ण इसे दर्पण की तरह उपयोग करते हैं: कर्म का हर भाग हमारे भीतर प्रबल गुण को दिखाता है। सात्त्विक, राजस और तामस ज्ञान, कर्म और कर्ता को पहचानना सीखकर व्यक्ति देख सकता है कि वह कहाँ खड़ा है और सत्त्व की ओर तथा उससे आगे कैसे बढ़े।",
+"ctx": "यह श्लोक 18.20 से 18.28 की विस्तृत सूची की भूमिका है। ज्ञान 18.20 से 18.22 में, कर्म 18.23 से 18.25 में, और कर्ता 18.26 से 18.28 में बताया गया है। यह अध्याय 14 और 17 के गुण-विश्लेषण को आगे बढ़ाता है।",
+"ex": ["दो लोग एक ही समाचार पढ़ते हैं। एक शांति से पूरी तस्वीर देखता है, दूसरा केवल वही देखता है जो उसके क्रोध को सही ठहराए, और तीसरा समझने की कोशिश ही नहीं करता। घटना एक, जानने के तीन तरीके।", "तीन रसोइए भोजन बनाते हैं: एक ध्यान से और दूसरों के स्वास्थ्य के लिए, एक दिखावे के लिए, और एक लापरवाही से। गुण कर्म को आकार देते हैं।"],
+"apply": "जीवन का एक क्षेत्र, जैसे काम, चुनें और पूछें: यहाँ मेरा जानना, करना और दृष्टिकोण ज़्यादातर स्पष्ट है, बेचैन है या जड़?",
+"mis": "ये तीन प्रकार लोगों पर लगने वाले स्थायी ठप्पे नहीं हैं। हर व्यक्ति में तीनों गुण हैं; किसी समय एक प्रबल होता है, और प्रयत्न व अभ्यास से वह बदल सकता है।",
+"interp": [["अद्वैत (शंकराचार्य)", "सांख्य दर्शन की हर बात मान्य न होने पर भी उसका गुण-विश्लेषण सही है, इसलिए यहाँ उसका उपयोग हुआ है।"], ["श्रीधर स्वामी", "कृष्ण तीन प्रकार इसलिए बताते हैं कि व्यक्ति सात्त्विक को अपनाए और बाकी को छोड़े।"]],
+"rq": "आपको क्या लगता है, इस महीने कौन-सा गुण आपके कर्मों को सबसे ज़्यादा आकार दे रहा है?",
+"take": "अपना गुण पहचानना ही उससे ऊपर उठने का पहला कदम है।"
+},
+"gu": {
+"wm": ["જ્ઞાન, કર્મ અને કર્તા", "ગુણોના ભેદથી ત્રણ-ત્રણ પ્રકારના જ", "ગુણ-વિજ્ઞાન (સાંખ્ય)માં કહેવાયા છે", "તેમને પણ યથાર્થ રીતે સાંભળ"],
+"tr": "ગુણોનું વર્ણન કરનાર શાસ્ત્રમાં જ્ઞાન, કર્મ અને કર્તા ગુણોના ભેદથી ત્રણ-ત્રણ પ્રકારના જ કહેવાયા છે; તે પણ તું મારી પાસેથી બરાબર સાંભળ.",
+"simple": "કૃષ્ણ કહે છે કે આપણે જે રીતે જાણીએ, જે રીતે કર્મ કરીએ, અને જેવા પ્રકારના માણસ કર્મ કરે, તે બધું ત્રણ-ત્રણ પ્રકારનું હોઈ શકે. આ ત્રણ ગુણો પર આધારિત છે: સત્ત્વ (સ્પષ્ટતા), રજસ (બેચેન ઇચ્છા) અને તમસ (જડતા). તેઓ અર્જુનને ધ્યાનથી સાંભળવા કહે છે.",
+"deep": "'ગુણસંખ્યાન' નો અર્થ સાંખ્યનો એ ઉપદેશ છે જે પ્રકૃતિને ત્રણ ગુણોમાં વહેંચીને સમજાવે છે. કૃષ્ણ તેનો ઉપયોગ અરીસાની જેમ કરે છે: કર્મનો દરેક ભાગ આપણામાં પ્રબળ ગુણને બતાવે છે. સાત્ત્વિક, રાજસ અને તામસ જ્ઞાન, કર્મ અને કર્તાને ઓળખતાં શીખીને માણસ જોઈ શકે કે તે ક્યાં ઊભો છે અને સત્ત્વ તરફ તથા તેનાથી આગળ કેવી રીતે વધે.",
+"ctx": "આ શ્લોક 18.20થી 18.28ની વિગતવાર યાદીની ભૂમિકા છે. જ્ઞાન 18.20થી 18.22માં, કર્મ 18.23થી 18.25માં, અને કર્તા 18.26થી 18.28માં કહ્યાં છે. તે અધ્યાય 14 અને 17ના ગુણ-વિશ્લેષણને આગળ વધારે છે.",
+"ex": ["બે માણસ એક જ સમાચાર વાંચે છે. એક શાંતિથી આખું ચિત્ર જુએ છે, બીજો ફક્ત એ જુએ છે જે તેના ગુસ્સાને સાચો ઠેરવે, અને ત્રીજો સમજવાનો પ્રયત્ન જ કરતો નથી. ઘટના એક, જાણવાની ત્રણ રીત.", "ત્રણ રસોઇયા ભોજન બનાવે છે: એક ધ્યાનથી અને બીજાના આરોગ્ય માટે, એક દેખાડા માટે, અને એક બેદરકારીથી. ગુણો કર્મને આકાર આપે છે."],
+"apply": "જીવનનું એક ક્ષેત્ર, જેમ કે કામ, પસંદ કરો અને પૂછો: અહીં મારું જાણવું, કરવું અને વલણ મોટે ભાગે સ્પષ્ટ છે, બેચેન છે કે જડ?",
+"mis": "આ ત્રણ પ્રકાર લોકો પર લાગતાં કાયમી લેબલ નથી. દરેકમાં ત્રણે ગુણો છે; કોઈ સમયે એક પ્રબળ હોય, અને પ્રયત્ન તથા અભ્યાસથી તે બદલાઈ શકે.",
+"interp": [["અદ્વૈત (શંકરાચાર્ય)", "સાંખ્ય દર્શનની દરેક વાત માન્ય ન હોવા છતાં તેનું ગુણ-વિશ્લેષણ સાચું છે, તેથી અહીં તેનો ઉપયોગ થયો છે."], ["શ્રીધર સ્વામી", "કૃષ્ણ ત્રણ પ્રકાર એટલા માટે કહે છે કે માણસ સાત્ત્વિકને અપનાવે અને બાકીનાને છોડે."]],
+"rq": "તમને શું લાગે છે, આ મહિને કયો ગુણ તમારાં કર્મોને સૌથી વધુ ઘડે છે?",
+"take": "પોતાનો ગુણ ઓળખવો એ તેનાથી ઉપર ઊઠવાનું પહેલું પગલું છે."
+}
+},
+"18.20": {
+"w": ["sarva-bhūteṣu yena ekam", "bhāvam avyayam īkṣate", "avibhaktaṃ vibhakteṣu", "tat jñānaṃ viddhi sāttvikam"],
+"en": {
+"wm": ["by which, in all beings, the one", "imperishable reality one sees", "undivided in the divided", "know that knowledge to be sattvic"],
+"tr": "The knowledge by which one sees one imperishable reality in all beings, undivided among the divided, know that knowledge to be sattvic.",
+"simple": "The best kind of knowledge sees the same deep reality in every living being. People and creatures look separate and different on the outside, but this knowledge sees one unbroken life running through them all. Krishna calls this sattvic, or clear, knowledge.",
+"deep": "'Bhava avyaya' is the changeless reality, the Self or Brahman. 'Vibhakta' means things divided by form, name, body and role. Sattvic knowledge does not deny these differences, but sees through them to what is 'avibhakta', undivided. This vision makes compassion natural, because harming another is seen as harming oneself. It is the knowledge that leads towards liberation.",
+"ctx": "This is the first of three kinds of knowledge (18.20 to 18.22). It echoes 6.29 ('he sees the Self in all beings and all beings in the Self') and 13.27 ('one who sees the Supreme Lord dwelling equally in all beings truly sees'). Rajasic knowledge in 18.21 sees only separation.",
+"ex": ["A nurse treats a rich patient and a homeless patient with the same care, because she sees the same human being in both.", "A child who learns that animals feel pain like we do starts to treat a stray dog gently. Seeing a shared life changes behaviour."],
+"apply": "Today, when you meet someone very different from you, quietly remind yourself of what you share: the wish to be happy and free from pain.",
+"mis": "Seeing oneness does not mean ignoring real differences, such as needs, roles or responsibilities. A doctor still treats each illness differently; the unity lies at a deeper level.",
+"interp": [["Advaita (Shankara)", "This knowledge sees the one non-dual Self, without any difference, in all bodies; it is the direct vision of Brahman."], ["Sridhara", "Seeing one changeless consciousness in all separate forms is sattvic knowledge."], ["Vishishtadvaita (Ramanuja)", "All selves are alike in being knowledge by nature, and all are pervaded by the one Lord; seeing this sameness is sattvic knowledge."]],
+"rq": "Whom do you find it hardest to see as sharing the same deep life as you?",
+"take": "Clear knowledge sees one life in many forms."
+},
+"hi": {
+"wm": ["जिससे सब प्राणियों में एक", "अविनाशी भाव (सत्ता) को देखता है", "विभक्त (अलग-अलग) में अविभक्त", "उस ज्ञान को सात्त्विक जानो"],
+"tr": "जिस ज्ञान से मनुष्य अलग-अलग सब प्राणियों में एक अविनाशी भाव को विभाग रहित (अविभक्त) देखता है, उस ज्ञान को तुम सात्त्विक जानो।",
+"simple": "सबसे अच्छा ज्ञान हर जीव में एक ही गहरी सच्चाई देखता है। बाहर से लोग और प्राणी अलग-अलग दिखते हैं, पर यह ज्ञान उन सबमें बहने वाला एक अखंड जीवन देखता है। कृष्ण इसे सात्त्विक, यानी स्पष्ट, ज्ञान कहते हैं।",
+"deep": "'भाव अव्यय' अपरिवर्तनशील सत्य है, आत्मा या ब्रह्म। 'विभक्त' का अर्थ रूप, नाम, शरीर और भूमिका से बँटी चीज़ें हैं। सात्त्विक ज्ञान इन भेदों को नकारता नहीं, बल्कि उनके पार 'अविभक्त' को देखता है। इस दृष्टि से करुणा स्वाभाविक हो जाती है, क्योंकि दूसरे को चोट पहुँचाना स्वयं को चोट पहुँचाना दिखता है। यही ज्ञान मुक्ति की ओर ले जाता है।",
+"ctx": "यह ज्ञान के तीन प्रकारों (18.20 से 18.22) में पहला है। यह 6.29 ('वह सब प्राणियों में आत्मा और आत्मा में सब प्राणियों को देखता है') और 13.27 ('जो सब प्राणियों में समान रूप से स्थित परमेश्वर को देखता है, वही देखता है') की प्रतिध्वनि है। 18.21 का राजस ज्ञान केवल अलगाव देखता है।",
+"ex": ["एक नर्स अमीर रोगी और बेघर रोगी, दोनों की एक-सी देखभाल करती है, क्योंकि उसे दोनों में वही मनुष्य दिखता है।", "जब कोई बच्चा सीखता है कि जानवरों को भी हमारी तरह दर्द होता है, तो वह आवारा कुत्ते से कोमलता से पेश आने लगता है। साझा जीवन देखने से व्यवहार बदलता है।"],
+"apply": "आज जब आप खुद से बहुत अलग किसी व्यक्ति से मिलें, तो चुपचाप याद करें कि आपमें क्या साझा है: सुखी रहने और दुःख से मुक्त होने की इच्छा।",
+"mis": "एकता देखने का अर्थ वास्तविक भेदों, जैसे ज़रूरतों, भूमिकाओं या ज़िम्मेदारियों को अनदेखा करना नहीं है। डॉक्टर फिर भी हर बीमारी का अलग इलाज करता है; एकता गहरे स्तर पर है।",
+"interp": [["अद्वैत (शंकराचार्य)", "यह ज्ञान सब शरीरों में बिना किसी भेद के एक अद्वैत आत्मा को देखता है; यह ब्रह्म का प्रत्यक्ष दर्शन है।"], ["श्रीधर स्वामी", "सब अलग-अलग रूपों में एक अपरिवर्तनशील चेतना को देखना सात्त्विक ज्ञान है।"], ["विशिष्टाद्वैत (रामानुजाचार्य)", "सब आत्माएँ ज्ञान-स्वरूप होने में समान हैं और सब एक ही भगवान से व्याप्त हैं; इस समानता को देखना सात्त्विक ज्ञान है।"]],
+"rq": "किसे आपके जैसे ही गहरे जीवन का भागीदार मानना आपको सबसे कठिन लगता है?",
+"take": "स्पष्ट ज्ञान अनेक रूपों में एक जीवन देखता है।"
+},
+"gu": {
+"wm": ["જેનાથી બધા જીવોમાં એક", "અવિનાશી ભાવ (સત્તા)ને જુએ છે", "વિભક્ત (અલગ-અલગ)માં અવિભક્ત", "તે જ્ઞાનને સાત્ત્વિક જાણ"],
+"tr": "જે જ્ઞાનથી મનુષ્ય અલગ-અલગ બધા જીવોમાં એક અવિનાશી ભાવને વિભાગ વગરનો (અવિભક્ત) જુએ છે, તે જ્ઞાનને તું સાત્ત્વિક જાણ.",
+"simple": "સૌથી સારું જ્ઞાન દરેક જીવમાં એક જ ઊંડું સત્ય જુએ છે. બહારથી લોકો અને પ્રાણીઓ જુદાં દેખાય છે, પણ આ જ્ઞાન તે બધામાં વહેતું એક અખંડ જીવન જુએ છે. કૃષ્ણ તેને સાત્ત્વિક, એટલે સ્પષ્ટ, જ્ઞાન કહે છે.",
+"deep": "'ભાવ અવ્યય' એ અપરિવર્તનશીલ સત્ય છે, આત્મા કે બ્રહ્મ. 'વિભક્ત' નો અર્થ રૂપ, નામ, શરીર અને ભૂમિકાથી વહેંચાયેલી વસ્તુઓ છે. સાત્ત્વિક જ્ઞાન આ ભેદોને નકારતું નથી, પણ તેમની પાર 'અવિભક્ત' ને જુએ છે. આ દૃષ્ટિથી કરુણા સ્વાભાવિક બને છે, કારણ કે બીજાને દુઃખ આપવું એ પોતાને દુઃખ આપવા જેવું દેખાય છે. આ જ જ્ઞાન મુક્તિ તરફ લઈ જાય છે.",
+"ctx": "આ જ્ઞાનના ત્રણ પ્રકારો (18.20થી 18.22)માં પહેલો છે. તે 6.29 ('તે બધા જીવોમાં આત્માને અને આત્મામાં બધા જીવોને જુએ છે') અને 13.27 ('જે બધા જીવોમાં સમાન રીતે રહેલા પરમેશ્વરને જુએ છે, તે જ જુએ છે') નો પડઘો છે. 18.21નું રાજસ જ્ઞાન ફક્ત અલગતા જુએ છે.",
+"ex": ["એક નર્સ ધનવાન દર્દી અને બેઘર દર્દી, બંનેની એકસરખી સંભાળ રાખે છે, કારણ કે તેને બંનેમાં એ જ માણસ દેખાય છે.", "જ્યારે કોઈ બાળક શીખે છે કે પ્રાણીઓને પણ આપણી જેમ દુઃખ થાય છે, ત્યારે તે રખડતા કૂતરા સાથે કોમળતાથી વર્તવા લાગે છે. સહિયારું જીવન જોવાથી વર્તન બદલાય છે."],
+"apply": "આજે જ્યારે તમે તમારાથી ઘણા જુદા કોઈ માણસને મળો, ત્યારે ચૂપચાપ યાદ કરો કે તમારામાં શું સહિયારું છે: સુખી રહેવાની અને દુઃખથી મુક્ત થવાની ઇચ્છા.",
+"mis": "એકતા જોવાનો અર્થ સાચા ભેદો, જેમ કે જરૂરિયાતો, ભૂમિકાઓ કે જવાબદારીઓને અવગણવા એવો નથી. ડૉક્ટર તોપણ દરેક માંદગીની અલગ સારવાર કરે છે; એકતા ઊંડા સ્તરે છે.",
+"interp": [["અદ્વૈત (શંકરાચાર્ય)", "આ જ્ઞાન બધાં શરીરોમાં કોઈ ભેદ વગર એક અદ્વૈત આત્માને જુએ છે; તે બ્રહ્મનું પ્રત્યક્ષ દર્શન છે."], ["શ્રીધર સ્વામી", "બધાં જુદાં રૂપોમાં એક અપરિવર્તનશીલ ચેતનાને જોવી એ સાત્ત્વિક જ્ઞાન છે."], ["વિશિષ્ટાદ્વૈત (રામાનુજાચાર્ય)", "બધા આત્મા જ્ઞાનસ્વરૂપ હોવામાં સમાન છે અને બધા એક જ ભગવાનથી વ્યાપ્ત છે; આ સમાનતા જોવી એ સાત્ત્વિક જ્ઞાન છે."]],
+"rq": "કોને તમારા જેવા જ ઊંડા જીવનના ભાગીદાર માનવા તમને સૌથી અઘરું લાગે છે?",
+"take": "સ્પષ્ટ જ્ઞાન અનેક રૂપોમાં એક જીવન જુએ છે."
+}
+},
+"18.24": {
+"w": ["yat tu kāma-īpsunā karma", "sa-ahaṅkāreṇa vā punaḥ", "kriyate bahula-āyāsam", "tat rājasam udāhṛtam"],
+"en": {
+"wm": ["but the action done by one who craves desires", "or again, with ego", "done with great strain", "that is called rajasic"],
+"tr": "But action done by one who craves the fulfilment of desires, or with ego, and with great strain, is called rajasic.",
+"simple": "This is restless action. A person works hard, but mainly to get what they want or to prove themselves. The work is tiring and stressful, because it is pushed by desire and pride. Krishna calls this rajasic action.",
+"deep": "Three marks are given. 'Kama-ipsu': the action aims at getting pleasures or gains. 'Sahankara': it is done with a strong sense of 'I, me, mine', to look important. 'Bahula-ayasa': it involves great strain, because the mind is anxious and constantly pushing. Rajasic action can achieve a lot outwardly, but it exhausts the doer and keeps them bound to results.",
+"ctx": "This is the second of three kinds of action (18.23 to 18.25). Sattvic action in 18.23 is done without attachment, love or hatred and without desire for fruit. Tamasic action in 18.25 is done blindly. The rajasic type matches the description of rajas in 14.12: greed, activity and restlessness.",
+"ex": ["An executive takes on every project to climb faster and be seen as indispensable. He achieves much but feels drained and irritable.", "A student studies late every night only to beat a rival classmate. The pressure ruins her health and joy in learning."],
+"apply": "Look at a task that leaves you exhausted. Ask whether the tiredness comes from the work itself, or from desire and ego attached to it.",
+"mis": "Hard work in itself is not rajasic. Sattvic people can work very hard too; what makes action rajasic is the craving and ego behind it, which turn effort into strain.",
+"interp": [["Advaita (Shankara)", "Action done for desired fruits and with the pride of being a learned or important person, involving great effort, is rajasic."], ["Sridhara", "'Bahula-ayasa' shows that rajasic action is done with much trouble, because the mind is driven by desire and ego."]],
+"rq": "Which part of your work feels like strain, and what desire or pride is behind it?",
+"take": "Effort driven by craving and ego turns into strain."
+},
+"hi": {
+"wm": ["परन्तु कामनाओं को चाहने वाले के द्वारा जो कर्म", "या फिर अहंकार सहित", "बहुत परिश्रम से किया जाता है", "वह राजस कहा गया है"],
+"tr": "परन्तु जो कर्म भोगों की कामना वाले मनुष्य द्वारा, या अहंकार के साथ, बहुत परिश्रम से किया जाता है, वह राजस कहा गया है।",
+"simple": "यह बेचैन कर्म है। व्यक्ति मेहनत तो बहुत करता है, पर मुख्यतः अपनी इच्छा पूरी करने या खुद को साबित करने के लिए। काम थकाऊ और तनाव भरा होता है, क्योंकि उसके पीछे कामना और अभिमान हैं। कृष्ण इसे राजस कर्म कहते हैं।",
+"deep": "तीन लक्षण बताए गए हैं। 'कामेप्सु': कर्म का लक्ष्य सुख या लाभ पाना है। 'साहंकार': यह 'मैं, मेरा' के तीव्र भाव से, बड़ा दिखने के लिए किया जाता है। 'बहुलायास': इसमें बहुत परिश्रम होता है, क्योंकि मन चिंतित है और लगातार धक्का देता रहता है। राजस कर्म बाहर बहुत कुछ पा सकता है, पर कर्ता को थका देता है और फल से बाँधे रखता है।",
+"ctx": "यह कर्म के तीन प्रकारों (18.23 से 18.25) में दूसरा है। 18.23 का सात्त्विक कर्म आसक्ति, राग-द्वेष और फल की इच्छा के बिना होता है। 18.25 का तामस कर्म अंधेपन से होता है। राजस प्रकार 14.12 में बताए रजस के वर्णन से मेल खाता है: लोभ, प्रवृत्ति और अशांति।",
+"ex": ["एक अधिकारी जल्दी आगे बढ़ने और अपरिहार्य दिखने के लिए हर प्रोजेक्ट ले लेता है। वह बहुत कुछ हासिल करता है, पर थका और चिड़चिड़ा रहता है।", "एक छात्रा केवल एक प्रतिद्वंद्वी सहपाठी को हराने के लिए हर रात देर तक पढ़ती है। दबाव उसके स्वास्थ्य और सीखने के आनंद को बिगाड़ देता है।"],
+"apply": "किसी ऐसे काम को देखें जो आपको थका देता है। पूछें कि थकान काम से आती है, या उससे जुड़ी कामना और अहंकार से।",
+"mis": "कड़ी मेहनत अपने आप में राजस नहीं है। सात्त्विक लोग भी बहुत मेहनत करते हैं; कर्म को राजस बनाने वाली चीज़ उसके पीछे की लालसा और अहंकार है, जो प्रयत्न को तनाव बना देते हैं।",
+"interp": [["अद्वैत (शंकराचार्य)", "इच्छित फल के लिए और 'मैं विद्वान या बड़ा हूँ' के अभिमान के साथ बहुत श्रम से किया गया कर्म राजस है।"], ["श्रीधर स्वामी", "'बहुलायास' दिखाता है कि राजस कर्म बहुत कष्ट से होता है, क्योंकि मन कामना और अहंकार से चलता है।"]],
+"rq": "आपके काम का कौन-सा हिस्सा तनाव जैसा लगता है, और उसके पीछे कौन-सी कामना या अभिमान है?",
+"take": "लालसा और अहंकार से चला प्रयत्न तनाव बन जाता है।"
+},
+"gu": {
+"wm": ["પરંતુ કામનાઓ ઇચ્છનાર દ્વારા જે કર્મ", "અથવા ફરી અહંકાર સાથે", "ઘણા પરિશ્રમથી કરાય છે", "તે રાજસ કહેવાયું છે"],
+"tr": "પરંતુ જે કર્મ ભોગોની કામનાવાળા મનુષ્ય દ્વારા, અથવા અહંકાર સાથે, ઘણા પરિશ્રમથી કરાય છે, તે રાજસ કહેવાયું છે.",
+"simple": "આ બેચેન કર્મ છે. માણસ મહેનત તો ઘણી કરે છે, પણ મુખ્યત્વે પોતાની ઇચ્છા પૂરી કરવા કે પોતાને સાબિત કરવા. કામ થકવનારું અને તણાવભર્યું હોય છે, કારણ કે તેની પાછળ કામના અને અભિમાન છે. કૃષ્ણ તેને રાજસ કર્મ કહે છે.",
+"deep": "ત્રણ લક્ષણો કહ્યાં છે. 'કામેપ્સુ': કર્મનું લક્ષ્ય સુખ કે લાભ મેળવવાનું છે. 'સાહંકાર': તે 'હું, મારું' ના તીવ્ર ભાવથી, મોટા દેખાવા માટે કરાય છે. 'બહુલાયાસ': તેમાં ઘણો પરિશ્રમ છે, કારણ કે મન ચિંતિત છે અને સતત ધક્કો મારે છે. રાજસ કર્મ બહાર ઘણું મેળવી શકે, પણ કર્તાને થકવી નાખે છે અને ફળ સાથે બાંધી રાખે છે.",
+"ctx": "આ કર્મના ત્રણ પ્રકારો (18.23થી 18.25)માં બીજો છે. 18.23નું સાત્ત્વિક કર્મ આસક્તિ, રાગ-દ્વેષ અને ફળની ઇચ્છા વગર થાય છે. 18.25નું તામસ કર્મ અંધાપાથી થાય છે. રાજસ પ્રકાર 14.12માં કહેલા રજસના વર્ણન સાથે મેળ ખાય છે: લોભ, પ્રવૃત્તિ અને અશાંતિ.",
+"ex": ["એક અધિકારી ઝડપથી આગળ વધવા અને અનિવાર્ય દેખાવા દરેક પ્રોજેક્ટ લઈ લે છે. તે ઘણું મેળવે છે, પણ થાકેલો અને ચીડિયો રહે છે.", "એક વિદ્યાર્થિની ફક્ત એક હરીફ સહપાઠીને હરાવવા દરરોજ રાત્રે મોડે સુધી ભણે છે. દબાણ તેના આરોગ્ય અને શીખવાના આનંદને બગાડે છે."],
+"apply": "એવા કોઈ કામને જુઓ જે તમને થકવી નાખે છે. પૂછો કે થાક કામમાંથી આવે છે, કે તેની સાથે જોડાયેલી કામના અને અહંકારમાંથી.",
+"mis": "સખત મહેનત પોતે રાજસ નથી. સાત્ત્વિક લોકો પણ ઘણી મહેનત કરે છે; કર્મને રાજસ બનાવનારી વસ્તુ તેની પાછળની લાલસા અને અહંકાર છે, જે પ્રયત્નને તણાવ બનાવે છે.",
+"interp": [["અદ્વૈત (શંકરાચાર્ય)", "ઇચ્છિત ફળ માટે અને 'હું વિદ્વાન કે મોટો છું' ના અભિમાન સાથે ઘણા શ્રમથી કરેલું કર્મ રાજસ છે."], ["શ્રીધર સ્વામી", "'બહુલાયાસ' બતાવે છે કે રાજસ કર્મ ઘણા કષ્ટથી થાય છે, કારણ કે મન કામના અને અહંકારથી ચાલે છે."]],
+"rq": "તમારા કામનો કયો ભાગ તણાવ જેવો લાગે છે, અને તેની પાછળ કઈ કામના કે અભિમાન છે?",
+"take": "લાલસા અને અહંકારથી ચાલતો પ્રયત્ન તણાવ બની જાય છે."
+}
+}
+}

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gita Tune Samples v2</title>
+<style>
+:root{
+  --bg:#fbf6ee; --card:#ffffff; --ink:#2b2218; --muted:#7a6a58; --line:#eadfce;
+  --saffron:#d9822b; --saffron-ink:#ffffff; --accent:#1f6f78; --glow:rgba(217,130,43,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16120e; --card:#211b15; --ink:#f3e9dc; --muted:#b3a48f; --line:#3a3027;
+    --saffron:#f0a04b; --saffron-ink:#1b130b; --accent:#5fc0c8; --glow:rgba(240,160,75,.18);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16120e; --card:#211b15; --ink:#f3e9dc; --muted:#b3a48f; --line:#3a3027;
+  --saffron:#f0a04b; --saffron-ink:#1b130b; --accent:#5fc0c8; --glow:rgba(240,160,75,.18);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.6rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 18px}
+.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:18px}
+.bar label{color:var(--muted);font-size:.9rem}
+.bar input{flex:1;min-width:120px;accent-color:var(--saffron)}
+.stopall{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer;font:inherit}
+.grid{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;transition:box-shadow .2s,border-color .2s}
+.card.playing{border-color:var(--saffron);box-shadow:0 0 0 4px var(--glow)}
+.card.rec{border-width:2px;border-color:var(--saffron)}
+.play{flex:none;width:52px;height:52px;border-radius:50%;border:none;background:var(--saffron);color:var(--saffron-ink);font-size:20px;cursor:pointer;display:grid;place-items:center}
+.play:focus-visible,.stopall:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.info{min-width:0}
+.title{font-weight:650;margin:0}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--saffron);color:var(--saffron-ink);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:2px}
+.desc{color:var(--muted);font-size:.92rem;margin:2px 0 0}
+.note{color:var(--muted);font-size:.85rem;margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎵 Tune samples for Gita Pathshala</h1>
+  <p class="sub">Softer, lighter and higher this time. Tap ▶ to listen; starting a new sample stops the one playing.</p>
+
+  <div class="bar">
+    <label for="vol">Volume</label>
+    <input id="vol" type="range" min="0" max="1" step="0.01" value="0.6">
+    <button class="stopall" id="stopall">■ Stop</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <p class="note">Made in your browser from pure, soft sine tones (no harsh buzzy sounds this time), pitched an octave higher with a lighter reverb. They are original and copyright-free, though still synthesised and not recordings.</p>
+</div>
+
+<script>
+const TRACKS = [
+  {id:'rec', rec:true, title:'Morning light: bowl, chimes, soft flute', desc:'A gentle singing bowl and chimes, a warm hum underneath, then a high airy flute in Raag Yaman (~35s).'},
+  {id:'flute', title:'Soft bansuri – Raag Yaman', desc:'A high, airy flute, slow and sweet, over a quiet hum.'},
+  {id:'musicbox', title:'Music box – Raag Bhupali', desc:'Light, bell-like notes. Playful and sweet, like a temple lullaby.'},
+  {id:'harp', title:'Harp / veena pluck – Raag Yaman', desc:'Gently plucked strings with a soft, warm ring.'},
+  {id:'chant', title:'Chime chant: Om Namo Bhagavate Vasudevaya', desc:'The chant melody on soft chimes.'},
+  {id:'bowl', title:'Singing bowl + wind chimes', desc:'Just a calm opening sound, with no melody. ~12s.'},
+  {id:'pad', title:'Warm hum only', desc:'A very soft, slow-breathing background for reading. Plays until you stop it.'}
+];
+
+const grid = document.getElementById('grid');
+TRACKS.forEach(t=>{
+  const c=document.createElement('div');
+  c.className='card'+(t.rec?' rec':''); c.id='card-'+t.id;
+  c.innerHTML=`<button class="play" aria-label="Play ${t.title}" data-id="${t.id}">▶</button>
+  <div class="info"><p class="title">${t.title}${t.rec?'<span class="tag">Recommended</span>':''}</p><p class="desc">${t.desc}</p></div>`;
+  grid.appendChild(c);
+});
+
+let ctx, master, dry, revIn, noiseBuf;
+let state = {bus:null, timers:[], nodes:[], id:null};
+
+function initAudio(){
+  if(ctx) return;
+  ctx = new (window.AudioContext||window.webkitAudioContext)();
+  const comp = ctx.createDynamicsCompressor();
+  comp.threshold.value=-18; comp.ratio.value=2.5; comp.connect(ctx.destination);
+  master = ctx.createGain(); master.gain.value = +document.getElementById('vol').value; master.connect(comp);
+  dry = ctx.createGain(); dry.gain.value=0.9; dry.connect(master);
+  // soft, dark reverb: noise decay, smoothed with a one-pole lowpass
+  const len = Math.floor(ctx.sampleRate*2.4), ir = ctx.createBuffer(2,len,ctx.sampleRate);
+  for(let ch=0;ch<2;ch++){const d=ir.getChannelData(ch);let y=0;for(let i=0;i<len;i++){y+=0.18*((Math.random()*2-1)-y);d[i]=y*Math.pow(1-i/len,3);}}
+  const conv = ctx.createConvolver(); conv.buffer=ir;
+  const wet = ctx.createGain(); wet.gain.value=0.9;
+  revIn = ctx.createGain(); revIn.gain.value=0.35; revIn.connect(conv); conv.connect(wet); wet.connect(master);
+  noiseBuf = ctx.createBuffer(1, ctx.sampleRate*2, ctx.sampleRate);
+  const nd=noiseBuf.getChannelData(0); for(let i=0;i<nd.length;i++) nd[i]=Math.random()*2-1;
+}
+document.getElementById('vol').addEventListener('input',e=>{ if(master) master.gain.setTargetAtTime(+e.target.value, ctx.currentTime, 0.05); });
+
+function makeBus(){ const g=ctx.createGain(); g.gain.value=1; g.connect(dry); g.connect(revIn); return g; }
+const ST = s => Math.pow(2, s/12);
+const SA = 293.66; // D4
+
+/* ---------- Instruments (all pure sines, gentle attacks) ---------- */
+function softFlute(bus,t,f,d,prev){
+  const out=ctx.createGain(), lp=ctx.createBiquadFilter();
+  lp.type='lowpass'; lp.frequency.value=2200; lp.Q.value=0.3; lp.connect(out); out.connect(bus);
+  const peak=0.13, end=t+d+0.35;
+  out.gain.setValueAtTime(0,t);
+  out.gain.linearRampToValueAtTime(peak,t+0.14);
+  out.gain.setValueAtTime(peak*0.9,Math.max(t+0.15,t+d-0.05));
+  out.gain.linearRampToValueAtTime(0,end);
+  const lfo=ctx.createOscillator(), lg=ctx.createGain();
+  lfo.frequency.value=4.8; lg.gain.setValueAtTime(0,t); lg.gain.linearRampToValueAtTime(d>0.9?7:2,t+Math.min(0.8,d)); lfo.connect(lg);
+  [[1,1],[2,0.07]].forEach(([k,a])=>{
+    const o=ctx.createOscillator(), g=ctx.createGain(); o.type='sine'; g.gain.value=a;
+    if(prev && prev!==f){ o.frequency.setValueAtTime(prev*k,t); o.frequency.exponentialRampToValueAtTime(f*k,t+0.12); }
+    else o.frequency.setValueAtTime(f*k,t);
+    lg.connect(o.detune); o.connect(g); g.connect(lp); o.start(t); o.stop(end+0.05);
+    state.nodes.push(o);
+  });
+  const n=ctx.createBufferSource(), hp=ctx.createBiquadFilter(), ng=ctx.createGain();
+  n.buffer=noiseBuf; n.loop=true; hp.type='bandpass'; hp.frequency.value=f*2.5; hp.Q.value=1.2;
+  ng.gain.setValueAtTime(0,t); ng.gain.linearRampToValueAtTime(0.012,t+0.08); ng.gain.linearRampToValueAtTime(0.004,t+0.4); ng.gain.linearRampToValueAtTime(0,end);
+  n.connect(hp); hp.connect(ng); ng.connect(out); n.start(t); n.stop(end+0.05);
+  lfo.start(t); lfo.stop(end+0.05); state.nodes.push(lfo,n);
+}
+function musicBox(bus,t,f,vol){
+  [[1,1,1.9],[2,0.28,1.0],[4.01,0.07,0.4]].forEach(([r,a,dec])=>{
+    const o=ctx.createOscillator(), g=ctx.createGain(); o.frequency.value=f*r;
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol*a,t+0.004); g.gain.exponentialRampToValueAtTime(0.0001,t+dec);
+    o.connect(g); g.connect(bus); o.start(t); o.stop(t+dec+0.05); state.nodes.push(o);
+  });
+}
+function harpPluck(bus,t,f,vol){
+  const lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.setValueAtTime(3000,t); lp.frequency.exponentialRampToValueAtTime(900,t+1.2); lp.connect(bus);
+  [[1,1,2.6],[2,0.35,1.5],[3,0.14,1.0],[4,0.05,0.7]].forEach(([r,a,dec])=>{
+    const o=ctx.createOscillator(), g=ctx.createGain(); o.frequency.value=f*r;
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol*a,t+0.006); g.gain.exponentialRampToValueAtTime(0.0001,t+dec);
+    o.connect(g); g.connect(lp); o.start(t); o.stop(t+dec+0.05); state.nodes.push(o);
+  });
+}
+function singingBowl(bus,t,f,vol){
+  [[1,1,7],[2.71,0.35,5],[5.15,0.1,3]].forEach(([r,a,dec])=>{
+    [0,1.4].forEach(beat=>{
+      const o=ctx.createOscillator(), g=ctx.createGain(); o.frequency.value=f*r+beat;
+      g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol*a*0.5,t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+dec);
+      o.connect(g); g.connect(bus); o.start(t); o.stop(t+dec+0.05); state.nodes.push(o);
+    });
+  });
+}
+function windChimes(bus,t,n){
+  const scale=[0,2,4,7,9,12,14,16]; let time=t;
+  for(let i=0;i<n;i++){ const s=scale[Math.floor(Math.random()*scale.length)]; musicBox(bus,time,SA*4*ST(s),0.028+Math.random()*0.02); time+=0.12+Math.random()*0.28; }
+  return time;
+}
+function startPad(bus,t){
+  // warm hum on Sa and Pa (D and A), slowly breathing
+  const out=ctx.createGain(); out.gain.setValueAtTime(0,t); out.gain.linearRampToValueAtTime(1,t+3); out.connect(bus);
+  const breath=ctx.createGain(); breath.gain.value=0.6; breath.connect(out.gain);
+  const lfo=ctx.createOscillator(), lg=ctx.createGain(); lfo.frequency.value=0.12; lg.gain.value=0.25; lfo.connect(lg); lg.connect(breath.gain); lfo.start(t); state.nodes.push(lfo);
+  [[146.83,0.05],[220,0.032],[293.66,0.022],[440,0.008]].forEach(([f,a])=>{
+    [-4,4].forEach(dt=>{
+      const o=ctx.createOscillator(), g=ctx.createGain(); o.type='sine'; o.frequency.value=f; o.detune.value=dt; g.gain.value=a;
+      o.connect(g); g.connect(out); o.start(t); state.nodes.push(o);
+    });
+  });
+}
+
+/* ---------- Melodies: [semitones from Sa or null for rest, beats] ---------- */
+const YAMAN=[[4,1],[6,1],[7,2],[6,1],[4,1],[2,2],[null,.5],[-1,.5],[2,1],[4,2],[null,1],
+  [7,1],[9,1],[11,2],[9,1],[7,1],[6,2],[4,1],[6,1],[7,1],[4,1],[2,1],[0,1],[-1,1],[0,4]];
+const BHUPALI=[[4,1],[7,1],[9,2],[7,1],[4,1],[2,2],[0,1],[2,1],[4,2],[null,1],
+  [7,1],[9,1],[12,2],[9,1],[7,1],[4,2],[2,1],[4,1],[2,1],[0,1],[0,4]];
+const CHANT=[[0,1.5],[2,.5],[4,1],[4,1],[4,.5],[2,.5],[4,1],[2,1],[0,2],[null,.5],
+  [4,1],[4,1],[7,1],[9,1],[7,1],[4,1],[4,1.5],[7,.5],[4,1],[2,1],[0,3]];
+
+function seqFlute(bus,t,mel,beat,oct){
+  let time=t, prev=null;
+  mel.forEach(([o,b])=>{ const d=b*beat; if(o===null){prev=null;} else { const f=SA*oct*ST(o); softFlute(bus,time,f,d,prev); prev=f; } time+=d; });
+  return time;
+}
+function seqPlucked(bus,t,mel,beat,oct,fn,vol){
+  let time=t;
+  mel.forEach(([o,b])=>{ const d=b*beat; if(o!==null) fn(bus,time,SA*oct*ST(o),vol); time+=d; });
+  return time;
+}
+
+/* ---------- Transport ---------- */
+function stopAll(){
+  state.timers.forEach(clearTimeout); state.timers=[];
+  const nodes=state.nodes; state.nodes=[];
+  if(state.bus && ctx){ const b=state.bus; b.gain.setTargetAtTime(0,ctx.currentTime,0.2);
+    setTimeout(()=>{ b.disconnect(); nodes.forEach(n=>{try{n.stop()}catch(e){}}); },1500); }
+  state.bus=null;
+  if(state.id){ const c=document.getElementById('card-'+state.id); c.classList.remove('playing'); c.querySelector('.play').textContent='▶'; }
+  state.id=null;
+}
+function finishAt(end){ state.timers.push(setTimeout(stopAll, (end-ctx.currentTime+2)*1000)); }
+
+function play(id){
+  initAudio(); if(ctx.state==='suspended') ctx.resume();
+  const wasSame = state.id===id; stopAll(); if(wasSame) return;
+  const bus=makeBus(); state.bus=bus; state.id=id;
+  const c=document.getElementById('card-'+id); c.classList.add('playing'); c.querySelector('.play').textContent='■';
+  const t=ctx.currentTime+0.1, B=0.62;
+  if(id==='rec'){
+    singingBowl(bus,t,196,0.16); windChimes(bus,t+1.2,18); startPad(bus,t+3);
+    finishAt(seqFlute(bus,t+7,YAMAN,B,2));
+  }
+  else if(id==='flute'){ startPad(bus,t); finishAt(seqFlute(bus,t+2,YAMAN,B,2)); }
+  else if(id==='musicbox'){ startPad(bus,t); finishAt(seqPlucked(bus,t+2,BHUPALI,0.5,2,musicBox,0.13)); }
+  else if(id==='harp'){ startPad(bus,t); finishAt(seqPlucked(bus,t+2,YAMAN,0.6,1,harpPluck,0.16)); }
+  else if(id==='chant'){ startPad(bus,t); finishAt(seqPlucked(bus,t+2,CHANT,0.5,2,musicBox,0.13)); }
+  else if(id==='bowl'){ singingBowl(bus,t,196,0.18); singingBowl(bus,t+3.5,262,0.12); finishAt(windChimes(bus,t+1,26)+4); }
+  else if(id==='pad'){ startPad(bus,t); }
+}
+grid.addEventListener('click',e=>{ const b=e.target.closest('.play'); if(b) play(b.dataset.id); });
+document.getElementById('stopall').addEventListener('click',stopAll);
+</script>
+</body>
+</html>
